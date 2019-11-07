@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 Let's load the `tidyverse` package. 
 
 ```{r}
-
+library(tidyverse)
 ```
 
 # Import NHANES Data
@@ -29,7 +29,7 @@ Let's load the `tidyverse` package.
 Let's import our data using `read_csv`. 
 
 ```{r}
-
+nhanes <- read_csv("data/nhanes.csv")
 ```
 
 # ggplot template
@@ -142,7 +142,7 @@ Here's what's going on.
 
 It's often easier to do our analysis work, save a data frame, and then use this to plot.
 
-Let's recreate our `female_height_inches_by_age` data frame. Note that I am using the `drop_na` function to, well, drop NA values.
+Let's make a `female_height_inches_by_age` data frame. Note that I am using the `drop_na` function to, well, drop NA values.
 
 ```{r}
 female_height_inches_by_age <- nhanes %>% 
@@ -202,26 +202,6 @@ ggplot(data = female_height_inches_by_age,
                      y = height_inches,
                      fill = age_decade)) +
   geom_bar(stat = "identity") 
-```
-
-
-# Scales
-
-![](slides/images/grammar-of-graphics.png)
-
-## color
-
-We can change which colors the data is mapped to by using a `scale_` function. Let's change the colors from our scatterplot to use a built-in palette like `scale_color_viridis_d` (the d means it's for discrete data). 
-
-FYI: The viridis scales provide colour maps that are perceptually uniform in both colour and black-and-white. They are also designed to be perceived by viewers with common forms of colour blindness.
-
-```{r}
-ggplot(data = nhanes,
-       mapping = aes(x = age,
-                     y = height,
-                     color = gender)) + 
-  geom_point() +
-  scale_color_viridis_d(option = "plasma")
 ```
 
 
@@ -304,31 +284,6 @@ ggplot(data = nhanes,
   theme_minimal()
 ```
 
-There are also packages that give you themes you can apply to your plots. 
-
-Let's load the `ggthemes` package (I installed it for you).
-
-```{r}
-library(ggthemes)
-```
-
-We can then use a theme from this package (`theme_economist`) to make our plots look like those in the Economist.
-
-```{r}
-ggplot(data = nhanes,
-       mapping = aes(x = age,
-                     y = height,
-                     color = gender)) + 
-  geom_point() +
-  scale_color_viridis_d(option = "plasma") +
-  labs(title = "Association Between Age and Height",
-       subtitle = "Data from NHANES",
-       x = "Age",
-       y = "Height (cm)",
-       color = "Gender") +
-  theme_economist()
-```
-
 
 
 
@@ -342,85 +297,12 @@ ggplot(data = nhanes,
                      y = height,
                      color = gender)) + 
   geom_point() +
-  scale_color_viridis_d(option = "plasma") +
   labs(title = "Association Between Age and Height",
        subtitle = "Data from NHANES",
        x = "Age",
        y = "Height (cm)",
        color = "Gender") +
-  theme_economist() +
+  theme_minimal() +
   facet_wrap(~gender)
 ```
-
-
-
-We can do this for any type of figure. Recall our histogram from before.
-
-
-```{r}
-ggplot(data = nhanes, 
-       mapping = aes(x = height)) +
-  geom_histogram() +
-  theme_economist() +
-  facet_wrap(~gender) 
-```
-
-You can use `facet_wrap` for as many groups as you have in your data. For example, let's make the same scatterplot as above, but for education level.
-
-```{r}
-ggplot(data = nhanes,
-       mapping = aes(x = age,
-                     y = height,
-                     color = gender)) + 
-  geom_point() +
-  scale_color_viridis_d(option = "plasma") +
-  labs(title = "Association Between Age and Height",
-       subtitle = "Data from NHANES",
-       x = "Age",
-       y = "Height (cm)",
-       color = "Gender") +
-  theme_economist() +
-  facet_wrap(~education)
-```
-
-# Save Plots
-
-There are two ways to think about saving your plots. 
-
-If you're working in RMarkdown, just knit your file and your plots will show up as part of your HTML, Word, or PDF document. Use this option by default!
-
-If you do need to save an individual plot for some other purpose (e.g. putting it in a report not created in RMarkdown), use the `ggsave` function. By default, `ggsave` will save the last plot you made.
-
-First, we plot.
-
-```{r}
-ggplot(data = nhanes,
-       mapping = aes(x = age,
-                     y = height,
-                     color = gender)) + 
-  geom_point() +
-  scale_color_viridis_d(option = "plasma") +
-  labs(title = "Association Between Age and Height",
-       subtitle = "Data from NHANES",
-       x = "Age",
-       y = "Height (cm)",
-       color = "Gender") +
-  theme_economist() +
-  facet_wrap(~gender)
-```
-
-And then we save this plot.
-
-```{r}
-ggsave("plots/dk-plot.png")
-```
-
-We can save our plot to other formats as well. PDF is a great option because it produces small file sizes and high-quality plots. You don't need to list dpi here as PDFs are [vector based](https://www.stickermule.com/blog/raster-vs-vector-images).
-
-```{r}
-ggsave("plots/dk-plot.pdf")
-```
-
-
-
 

@@ -131,7 +131,7 @@ tibble::tribble(
   "<=", "less than or equal to", "x <= y",
   ">", "greater than", "x > y",
   ">=", "greater than or equal to", "x >= y",
-  "==", "exactly equal to", "x == y",
+  "==", "equal to", "x == y",
   "!=", "not equal to", "x != y",
   "%in%", "group membership", "x %in% y",
 )
@@ -161,8 +161,6 @@ nhanes %>%
   filter(work != "Working") %>% 
   select(work)
 ```
-
-
 
 We can use `%in%` to only include responses that much a group. 
 
@@ -237,19 +235,6 @@ nhanes %>%
 ```
 
 
-We can have multiple arguments in each usage of `summarize`. Let's add the median along with the mean.
-
-```{r}
-nhanes %>% 
-  summarize(mean_days_phys_active = mean(phys_active_days,
-                                         na.rm = TRUE),
-            median_days_phys_active = median(phys_active_days,
-                                             na.rm = TRUE),
-            number_of_responses = n())
-```
-
-
-
 
 # group_by
 
@@ -262,15 +247,6 @@ nhanes %>%
 ```{r}
 nhanes %>% 
   group_by(age_decade) %>%
-  summarize(mean_active_days = mean(phys_active_days,
-                                    na.rm = TRUE))
-```
-
-We can use `group_by` with multiple groups. Let's calculate the mean number of active days for each year the survey was done and for gender.
-
-```{r}
-nhanes %>% 
-  group_by(survey_yr, gender, education) %>% 
   summarize(mean_active_days = mean(phys_active_days,
                                     na.rm = TRUE))
 ```

@@ -77,6 +77,10 @@ class: center, middle, inverse, dk-section-title
 
 1. Data Visualization
 
+-- 
+
+1. Make a Report in RMarkdown!
+
 ---
 
 class: center, middle, inverse, dk-section-title

@@ -18,6 +18,8 @@ output:
 
 # RMarkdown Overview
 
+
+
 --
 
 Every RMarkdown document has the following:
@@ -121,7 +123,7 @@ class: inverse
 
 ---
 
-##Text
+## Text
 
 .pull-left[
 With Markdown text, you write everything as pure text (no clicking a B button to make things bold). 
@@ -246,7 +248,7 @@ class: inverse
 
 1. Working in your report.Rmd file, above the RMarkdown second-level header, add the following first-level header: "Introduction"
 
-1. Add this text (note the bold and italics) below the introduction header: "This report is the best report ever. Pretty much the **bees' knees**. Can't say that I've *ever* seen a better report."
+1. Add this text (note the bold and italics) below the introduction header: "This report is the best report ever. Pretty much the **bee's knees**. Can't say that I've *ever* seen a better report."
 
 1. Add the following second-level header: "Reasons Why This Report is the Best"
 
@@ -392,19 +394,6 @@ All chunk options can be set at the **global level** (in the setup code chunk) o
 
 Options at the individual chunk level **override** global chunk options.
 
-
-
----
-
-class: inverse
-
-## Your Turn
-
-1. Change the default chunk options in the setup code chunk so that `echo = FALSE`. Knit your report and notice what is different. 
-
-1. Change the chunk options in the cars code chunk so that `include = FALSE`. Knit your report and notice what is different.
-
-1. Add a new code chunk (don't worry about naming it). In it, load the package `skimr` (hint: use the `library` function). Then, use the `skim` function that you learned about in the Getting Started course to skim the `cars` data frame. Knit your report to see the output. 
 
 
 ---

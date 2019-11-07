@@ -25,4 +25,3 @@
 # Use the skim() function to examine faketucky.
 
 
-s
