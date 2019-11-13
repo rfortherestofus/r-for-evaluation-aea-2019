@@ -1,5 +1,5 @@
 ---
-title: "Data Wrangling and Analysis Exercises"
+title: "Data Wrangling and Analysis Solutions"
 author: "R for the Rest of Us"
 output: 
     html_document:

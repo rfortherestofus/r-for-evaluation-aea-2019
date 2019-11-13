@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization Exercises"
+title: "Data Visualization Solutions"
 author: "R for the Rest of Us"
 output: 
     html_document:
