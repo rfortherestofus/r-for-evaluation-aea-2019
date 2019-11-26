@@ -94,7 +94,6 @@ We can use `mutate` in three ways:
 Create a **new variable with a specific value**
 
 ```{r}
-# Make country variable
 nhanes %>% 
   mutate(country = "United States") %>% 
   select(country)
@@ -114,7 +113,7 @@ Change an **existing variable**
 ```{r}
 nhanes %>% 
   mutate(height = height / 2.54) %>% 
-  select(height)
+  select(height) 
 ```
 
 
@@ -162,7 +161,7 @@ nhanes %>%
   select(work)
 ```
 
-We can use `%in%` to only include responses that much a group. 
+We can use `%in%` to only include responses that match a group. 
 
 ```{r}
 nhanes %>% 
@@ -230,7 +229,7 @@ We need to add `na.rm = TRUE` to tell R to drop `NA` values.
 
 ```{r}
 nhanes %>% 
-  summarize(mean_days_phys_active = mean(phys_active_days,
+  summarise(mean_days_phys_active = mean(phys_active_days,
                                          na.rm = TRUE))
 ```
 
@@ -246,7 +245,7 @@ nhanes %>%
 
 ```{r}
 nhanes %>% 
-  group_by(age_decade) %>%
+  group_by(age_decade, gender) %>%
   summarize(mean_active_days = mean(phys_active_days,
                                     na.rm = TRUE))
 ```
@@ -278,7 +277,19 @@ female_height_by_age <- nhanes %>%
   mutate(height_inches = height / 2.54) %>% 
   group_by(age_decade) %>% 
   summarize(mean_height_inches = mean(height_inches,
-                                    na.rm = TRUE)) 
+                                    na.rm = TRUE)) %>% 
+  drop_na(age_decade)
+```
+
+```{r}
+female_height_by_age %>% 
+  
+```
+
+```{r}
+nhanes %>% 
+  count(age_decade, gender) %>% 
+  arrange(desc(n))
 ```
 
 

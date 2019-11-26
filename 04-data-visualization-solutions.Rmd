@@ -141,7 +141,8 @@ ggplot(data = nhanes,
   geom_point() +
   labs(title = "Association Between Weight and Height by Race",
        x = "Weight",
-       y = "Height")
+       y = "Height",
+       color = "")
 ```
 
 

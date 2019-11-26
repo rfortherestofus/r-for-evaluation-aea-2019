@@ -1,6 +1,6 @@
 ---
 title: "R for Evaluation"
-author: "R for the Rest of Us"
+author: "David Keyes // R for the Rest of Us"
 output:
   xaringan::moon_reader:
     df_print: paged
@@ -178,6 +178,12 @@ Download RStudio at the [RStudio website](https://www.rstudio.com/products/rstud
 ![](images/rstudio-cloud.png)
 
 ---
+
+class: middle
+
+# https://rstudio.cloud/project/693829
+
+--
 
 ### Tour of RStudio
 

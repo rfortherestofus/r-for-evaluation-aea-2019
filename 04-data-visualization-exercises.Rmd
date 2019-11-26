@@ -37,7 +37,10 @@ nhanes <- read_csv("data/nhanes.csv")
 Make a scatterplot that shows weight on the x axis and height on the y axis.
 
 ```{r}
-# YOUR CODE HERE 
+ggplot(data = nhanes,
+       mapping = aes(x = weight,
+                     y = height)) +
+  geom_point()
 ```
 
 

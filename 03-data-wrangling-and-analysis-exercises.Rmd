@@ -42,7 +42,8 @@ With `select` we can select variables from the larger data frame.
 Use `select` to show just the `marital_status` variable.
 
 ```{r}
-# YOUR CODE HERE
+nhanes %>% 
+    select(marital_status)
 ```
 
 We can also use `select` for multiple variables. 
@@ -50,13 +51,15 @@ We can also use `select` for multiple variables.
 Use `select` to show `marital_status` and `education`.
 
 ```{r}
-# YOUR CODE HERE
+nhanes %>% 
+    select(marital_status, education)
 ```
 
 We can drop variables using the -var format. Drop the `education` variable.
 
 ```{r}
-# YOUR CODE HERE
+nhanes %>% 
+    select(-education)
 ```
 
 # mutate
@@ -79,7 +82,7 @@ Create a **new variable based on other variables**
 Create a new variable called `pct_days_phys_health_bad` and calculate it as the percentage of self-reported days of bad physical health in the last 30 days. Remember that the `days_phys_hlth_bad` variable is a measure of the **number** of self-reported days of bad physical health in the last 30 days. Then, use `select` to show the `days_phys_hlth_bad` and `pct_days_phys_health_bad` variables.
 
 ```{r}
-# YOUR CODE HERE
+n
 ```
 
 Change an **existing variable**

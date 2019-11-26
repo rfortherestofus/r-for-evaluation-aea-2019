@@ -80,6 +80,10 @@ If we add `stat = "bin"` we get the same thing. Each geom has a default stat.
 ```{r}
 ggplot(data = nhanes, 
        mapping = aes(x = height)) +
+  geom_histogram()
+
+ggplot(data = nhanes, 
+       mapping = aes(x = height)) +
   geom_histogram(stat = "bin")
 ```
 
@@ -88,7 +92,7 @@ We can adjust the number of bins using the `bins` argument.
 ```{r}
 ggplot(data = nhanes, 
        mapping = aes(x = height)) +
-  geom_histogram(bins = 100)
+  geom_histogram(bins = 1000)
 ```
 
 
@@ -201,7 +205,10 @@ ggplot(data = female_height_inches_by_age,
        mapping = aes(x = age_decade, 
                      y = height_inches,
                      fill = age_decade)) +
-  geom_bar(stat = "identity") 
+  geom_bar(stat = "identity") +
+  scale_y_continuous(limits = c(0, 80)) +
+  scale_fill_manual(values = c("red", "blue", "orange", "yellow", "green", "black", "gray", "white"))
+
 ```
 
 
@@ -216,7 +223,6 @@ ggplot(data = nhanes,
                      y = height,
                      color = gender)) + 
   geom_point() +
-  scale_color_viridis_d(option = "plasma") +
   labs(title = "Association Between Age and Height")
 ```
 
@@ -228,7 +234,6 @@ ggplot(data = nhanes,
                      y = height,
                      color = gender)) + 
   geom_point() +
-  scale_color_viridis_d(option = "plasma") +
   labs(title = "Association Between Age and Height",
        subtitle = "Data from NHANES")
 ```
@@ -242,7 +247,6 @@ ggplot(data = nhanes,
                      y = height,
                      color = gender)) + 
   geom_point() +
-  scale_color_viridis_d(option = "plasma") +
   labs(title = "Association Between Age and Height",
        subtitle = "Data from NHANES",
        x = "Age",
@@ -257,12 +261,11 @@ ggplot(data = nhanes,
                      y = height,
                      color = gender)) + 
   geom_point() +
-  scale_color_viridis_d(option = "plasma") +
   labs(title = "Association Between Age and Height",
        subtitle = "Data from NHANES",
        x = "Age",
        y = "Height (cm)",
-       color = "Gender")
+       color = "")
 ```
 
 # Themes
@@ -270,18 +273,20 @@ ggplot(data = nhanes,
 To add a theme to a plot, we use the `theme_` set of functions. There are several built-in themes. For instance, `theme_minimal`.
 
 ```{r}
+library(ggpom)
+
 ggplot(data = nhanes,
        mapping = aes(x = age,
                      y = height,
                      color = gender)) + 
   geom_point() +
-  scale_color_viridis_d(option = "plasma") +
   labs(title = "Association Between Age and Height",
        subtitle = "Data from NHANES",
        x = "Age",
        y = "Height (cm)",
        color = "Gender") +
-  theme_minimal()
+  theme_ipsum()
+
 ```
 
 
@@ -292,6 +297,8 @@ ggplot(data = nhanes,
 One of the most powerful features of ggplot is facetting. You can make small multiples by adding just a line of code using the `facet_wrap` function. Let's make two separate scatterplots from our example above (one for males, one for females).
 
 ```{r}
+library(ggpomological)
+
 ggplot(data = nhanes,
        mapping = aes(x = age,
                      y = height,
@@ -302,7 +309,7 @@ ggplot(data = nhanes,
        x = "Age",
        y = "Height (cm)",
        color = "Gender") +
-  theme_minimal() +
+  theme_pomological() +
   facet_wrap(~gender)
 ```
 
