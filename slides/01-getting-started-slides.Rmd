@@ -66,46 +66,8 @@ Please share your name and organization with people at your table
 
 1. Data Visualization
 
---
-
-1. Make a Report in RMarkdown!
 
 ---
-
-class: center, middle, inverse, dk-section-title
-
-# Logistics
-
-
----
-
-## Sticky Notes
-
-.pull-left[
-<div class="sticky-good">
-I'm good
-</div>
-]
-
-
-.pull-right[
-<div class="sticky-stuck">
-I'm stuck
-</div>
-]
-
----
-
-## Stuck? Talk With a Neighbor
-
---
-
-.center[
-![](images/talk-with-neighbor.png)
-]
-
----
-
 
 
 ## This is Hard and That's Ok
@@ -134,44 +96,6 @@ Source: (https://r-posts.com/advice-to-young-and-old-programmers-a-conversation-
 ---
 
 
-class: center, middle, dk-section-title
-
-background-image: url("images/installation.jpeg")
-
-# Installation
-
----
-
-## Install R
-
-The first thing you need to do is download the R software. Go to the [Comprehensive R Archive Network (aka “CRAN”) website](https://cran.cnr.berkeley.edu/) and download the software for your operating system (Windows, Mac, or Linux).
-
-![](images/download-r.png)
-
-
----
-
-
-## RStudio
-
-.center[
-![](images/engine-dashboard.png)
-
-.small[Courtesy [Modern Dive](http://moderndive.com/2-getting-started.html#what-are-r-and-rstudio)]
-]
-
-
----
-
-### Download RStudio
-
-Download RStudio at the [RStudio website](https://www.rstudio.com/products/rstudio/download/#download). Ignore the various versions listed there. All you need is the latest version of RStudio Desktop.
-
-![](images/download-rstudio.png)
-
-
----
-
 
 ## RStudio Cloud
 
@@ -181,15 +105,7 @@ Download RStudio at the [RStudio website](https://www.rstudio.com/products/rstud
 
 class: middle
 
-# https://rstudio.cloud/project/693829
-
---
-
-### Tour of RStudio
-
-.center[
-![](images/rstudio-panes.png)
-]
+## https://rstudio.cloud/project/754326
 
 ---
 
